@@ -36,15 +36,15 @@
 
 **자료**: 3Blue1Brown *Differential Equations* 시리즈 · Paul's Online Notes (ODE)
 
-## Phase 1 — 라플라스 변환과 전달함수 (2~3주) 🔑 ← 현재 위치
+## ✅ Phase 1 — 라플라스 변환과 전달함수 (완료: 2026-07-05)
 
 두 트랙(필터·제어)의 공통 관문. X(jω) 표기의 정체(s = σ + jω의 허수축 제한)가 여기서 해소된다.
 
 - [x] 라플라스 변환 정의, 주요 변환쌍, "미분 → s곱" 성질 (Session 1, phase1-laplace-problems.md)
 - [x] 미분방정식 → 대수방정식 → 전달함수 H(s) 흐름 체득 (Session 2, phase1-transferfunction-problems.md)
 - [x] **극점 위치 ↔ 시간응답 모양** 대응표: 좌반평면=감쇠, 우반평면=발산, 허수축=경계 — 대화로 정리(별도 문제 파일 없음)
-- [ ] 1차 시스템(시정수) 완료(Session 2) / **2차 시스템(감쇠비 ζ, 고유진동수 ωn) 계단응답은 남음**
-- [ ] Python: `scipy.signal.step`으로 극점 옮겨가며 응답 관찰 (아직 실행 안 함 — sympy·scipy venv는 준비됨)
+- [x] 1차 시스템(시정수, Session 2) + **2차 시스템(감쇠비 ζ, 고유진동수 ωn) 계단응답** (Session 3, phase1-2ndorder-problems.md)
+- [x] Python: `scipy.signal.step`으로 극점 옮겨가며 응답 관찰 (phase1_2ndorder_check.py 실행·확인 완료)
 
 **자료**: Oppenheim *Signals and Systems* 9장 · YouTube **Brian Douglas** (Control System Lectures)
 
@@ -108,3 +108,4 @@ CS 본능과 가장 잘 맞는 구간. Phase 2와 순서를 바꿔도 된다.
 | 2026-07-04 | **Phase 0 전체 완료** 🎓 | Session C(분산) C1~C5 전부 자력 정답 — 보조 없이 완주한 첫 세션. C1로 재검증 오답 설욕, σ²/N 유도·해석까지. 다음: Phase 1 Laplace |
 | 2026-07-04 | Phase 1 — Session 1 완료 (Laplace 정의·기본 성질) | W0~L3 자력, L1 ROC·L3 통분에서 오답 교정, L4 개념 해설 후 이해, L5는 힌트 1회 후 자력 완주 (phase1-laplace-problems.md). 대화로 ROC·좌우반평면·안정성 개념까지 깊게 다짐 |
 | 2026-07-04 | Phase 1 — Session 2 완료 (전달함수 H(s)) | T1~T3 전부 자력, T4는 e^0=1을 e로 착각한 계산 실수를 스스로 진단·교정 (phase1-transferfunction-problems.md). "1차 시스템 τ↔pole↔정착시간" 삼단 대응 확립. 남은 것: 2차 시스템(ζ,ωn), scipy 실행 |
+| 2026-07-05 | **Phase 1 전체 완료** 🎓 (Session 3, 2차 시스템) | H(s)=ωₙ²/(s²+2ζωₙs+ωₙ²) 유도부터 직접 함(L{ẍ} 자력 유도 → IC=0 대입). ωₙ² 계수의 의미(DC gain=1 정규화)까지 스스로 확인. P1 표준형 매칭에서 제곱근 빠뜨린 실수 자가교정. P2~P4(overdamped pole, underdamped 복소pole, ωd 개념) 자력. P5에서 ζ=2를 "발산"·"더 빠르다"로 두 번 오답했다가 직접 계산 후 교정(원점에 가까운 pole이 지배 = 더 느림, T3/T4 규칙 재확인). 마지막에 "ζ=2도 진동하는거 아니야?" 질문 — ζ²−1 부호로 실근/복소근 경계가 정확히 ζ=1임을 재확인하며 마무리. 다음: Phase 2(고전 제어) 또는 Phase 3(디지털 필터) 중 선택 |
