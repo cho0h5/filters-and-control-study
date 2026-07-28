@@ -1,3 +1,6 @@
 venv/
 __pycache__/
 .DS_Store
+
+# Obsidian 볼트 설정 (창 배치·테마 등, 머신마다 다름)
+.obsidian/
